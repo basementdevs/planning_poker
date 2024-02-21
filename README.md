@@ -7,7 +7,14 @@ In our first Coding Dojo, the goal is to deliver a complete web application that
 [TODO]
 
 ## How to install
-[TODO]
+### First time Installing packages
+`docker run --rm -v $(pwd):/var/www/html -w /var/www/html composer:latest composer install`
+### Upping containers
+`./vendor/bin/sail up -d`
+### Generating Keys
+`./vendor/bin/sail artisan key:gen`
+### Upping frontend
+`./vendor/bin/sail npm run dev`
 
 ## Dependencies
 [TODO]
