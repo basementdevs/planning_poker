@@ -15,6 +15,22 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            backgroundColor: {
+                'custom-background': '#FBFBFE',
+                'custom-primary': '#2F27CE',
+                'custom-secondary': '#DEDCFF',
+                'custom-accent': '#443DFF',
+            },
+            textColor: {
+                'custom-text': '#050315',
+                'custom-secondary': '#DEDCFF',
+                'custom-accent': '#443DFF',
+            },
+            borderColor: {
+                'custom-primary': '#2F27CE',
+                'custom-secondary': '#DEDCFF',
+                'custom-accent': '#443DFF',
+            },
         },
     },
 
