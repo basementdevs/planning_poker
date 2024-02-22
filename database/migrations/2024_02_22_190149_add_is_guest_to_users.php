@@ -11,11 +11,4 @@ return new class extends Migration {
             $table->boolean('is_guest')->default(false);
         });
     }
-
-    public function down(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
-    }
 };
