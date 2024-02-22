@@ -35,4 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('session')->group(function (){
+   Route::prefix('settings')->group(function (){
+       Route::get('board', [\App\Http\Controllers\StartSessionController::class, 'index']);
+   });
+});
+
+
 require __DIR__.'/auth.php';
