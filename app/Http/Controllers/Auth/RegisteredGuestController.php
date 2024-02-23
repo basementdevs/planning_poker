@@ -26,8 +26,6 @@ class RegisteredGuestController extends Controller
 
 
         // TODO: Enter the gaming session
-        // TODO: Redirect to the gaming session
-
         return redirect(RouteServiceProvider::HOME);
     }
 }

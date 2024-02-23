@@ -1,17 +1,16 @@
 <?php
 
-namespace Tests\Feature\Auth;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+test('new guests can register', function () {
+    $response = $this->post('/guest-register', [
+        'name' => 'Test User'
+    ]);
 
-class GuestRegisterTest extends TestCase{
-    use RefreshDatabase;
+    $this->assertAuthenticated();
+    $response->assertStatus(302);
 
-    public function testBasic()
-    {
-        $response = $this->get('/');//
-
-        $response->assertStatus(200);
-    }
-}
+    $this->assertDatabaseHas('users', [
+        'name' => 'Test User',
+        'is_guest' => true
+    ]);
+});
