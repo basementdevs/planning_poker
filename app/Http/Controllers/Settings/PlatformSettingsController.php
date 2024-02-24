@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class PlatformSettings extends Controller
+class PlatformSettingsController extends Controller
 {
     public function index(): Response
     {
