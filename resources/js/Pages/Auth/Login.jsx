@@ -6,9 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
-import github from '../../Assets/github.png';
-import trello from '../../Assets/trelloIcon.png';
-import jira from '../../Assets/jira.webp';
+import google from '../../Assets/google.png';
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -90,20 +88,16 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
 
-                <div className="flex items-center mt-4 justify-center ">
-                    <a href={route ('login-social.trello')} className="ms-4">
-                        <img src={trello} alt="Trello Logo" className="h-8 w-8 rounded-full shadow-lg cursor-pointer transform transition-transform hover:scale-105"/>
+                <div className="flex items-center mt-4 justify-around p-5">
+                    <a href={route ('login-social.google')} className="ms-4">
+                        <img src={google} alt="Google Logo"
+                             className="h-8 w-8 rounded-full shadow-lg cursor-pointer transform transition-transform hover:scale-105"/>
                     </a>
-                    <a href={route ('login-social.jira')} className="ms-4">
-                        <img src={jira} alt="Jira Logo" className="h-8 w-8 rounded-full shadow-lg cursor-pointer transform transition-transform hover:scale-105" />
-                    </a>
-                    <a href={route ('login-social.github')} className="ms-4">
-                        <img src={github} alt="GitHub Logo" className="h-8 w-8 rounded-full shadow-lg cursor-pointer transform transition-transform hover:scale-105"/>
-                    </a>
+                    <PrimaryButton className="ms-4" disabled={processing}>
+                        Log in
+                    </PrimaryButton>
                 </div>
-                <PrimaryButton className="ms-4" disabled={processing}>
-                    Log in
-                </PrimaryButton>
+
             </form>
         </GuestLayout>
     );

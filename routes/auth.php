@@ -34,13 +34,9 @@ Route::middleware('guest')->group(function () {
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
 
-    Route::post('github/login', [\App\Http\Controllers\Auth\SocialLoginController::class, 'github'])
-        ->name('login-social.github');
-    Route::post('trello/login', [\App\Http\Controllers\Auth\SocialLoginController::class, 'trello'])
-        ->name('login-social.trello');
-    Route::post('jira/login', [\App\Http\Controllers\Auth\SocialLoginController::class, 'jira'])
-        ->name('login-social.jira');
-
+    Route::get('google/login', [\App\Http\Controllers\Auth\SocialLoginController::class, 'google'])
+        ->name('login-social.google');
+    Route::get('google/callback', [\App\Http\Controllers\Auth\SocialLoginController::class, 'createOrAuth']);
 });
 
 Route::middleware('auth')->group(function () {
