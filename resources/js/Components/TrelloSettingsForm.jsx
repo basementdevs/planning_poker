@@ -17,7 +17,6 @@ export default  function TrelloForm () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Here, you can use apiKey and apiToken as needed, such as making API requests.
         console.log('API Key:', apiKey);
         console.log('API Token:', apiToken);
     };

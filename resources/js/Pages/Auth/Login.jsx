@@ -6,6 +6,9 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import github from '../../Assets/github.png';
+import trello from '../../Assets/trelloIcon.png';
+import jira from '../../Assets/jira.webp';
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -35,7 +38,6 @@ export default function Login({ status, canResetPassword }) {
             <form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
-
                     <TextInput
                         id="email"
                         type="email"
@@ -67,30 +69,41 @@ export default function Login({ status, canResetPassword }) {
                 </div>
 
                 <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox
-                            name="remember"
-                            checked={data.remember}
-                            onChange={(e) => setData('remember', e.target.checked)}
-                        />
-                        <span className="ms-2 text-sm text-gray-600">Remember me</span>
-                    </label>
+                    <div className="flex justify-around">
+                        {canResetPassword && (
+                            <Link
+                                href={route ('password.request')}
+                                className="underline text-sm text-custom-text hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            >
+                                Forgot your password?
+                            </Link>
+                        )}
+                        <label>
+                            <Checkbox
+                                name="remember"
+                                checked={data.remember}
+                                onChange={(e)=>setData ('remember', e.target.checked)}
+                            />
+                            <span className="ms-2 text-sm text-custom-text ">Remember me</span>
+                        </label>
+                    </div>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
+                <div className="flex items-center mt-4 justify-center ">
+                    <a href={route ('login-social.trello')} className="ms-4">
+                        <img src={trello} alt="Trello Logo" className="h-8 w-8 rounded-full shadow-lg cursor-pointer transform transition-transform hover:scale-105"/>
+                    </a>
+                    <a href={route ('login-social.jira')} className="ms-4">
+                        <img src={jira} alt="Jira Logo" className="h-8 w-8 rounded-full shadow-lg cursor-pointer transform transition-transform hover:scale-105" />
+                    </a>
+                    <a href={route ('login-social.github')} className="ms-4">
+                        <img src={github} alt="GitHub Logo" className="h-8 w-8 rounded-full shadow-lg cursor-pointer transform transition-transform hover:scale-105"/>
+                    </a>
                 </div>
+                <PrimaryButton className="ms-4" disabled={processing}>
+                    Log in
+                </PrimaryButton>
             </form>
         </GuestLayout>
     );

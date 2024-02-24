@@ -11,10 +11,10 @@ use Illuminate\Queue\SerializesModels;
 
 class ImportTasks implements ShouldQueue
 {
-
     private TaskService $taskService;
+
     private $tasks;
-    
+
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**

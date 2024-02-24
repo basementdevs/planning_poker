@@ -15,11 +15,11 @@ class GetTaskFromIntegrationRequest extends FormRequest
     {
         return [
             'type' => [
-                'required', 
+                'required',
                 'string',
             ],
             'boardId' => [
-                'required', 
+                'required',
                 'string',
             ],
         ];

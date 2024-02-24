@@ -2,6 +2,7 @@
 
 namespace App\Http\Enum;
 
-class IntegrationType {
-    const TRELLO = "trello";
+class IntegrationType
+{
+    const TRELLO = 'trello';
 }

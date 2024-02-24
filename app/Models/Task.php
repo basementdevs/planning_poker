@@ -10,6 +10,7 @@ class Task extends Model
     use HasFactory;
 
     protected $table = 'tasks';
+
     public $incrementing = false;
 
     protected $fillable = [
@@ -25,5 +26,4 @@ class Task extends Model
         'description' => 'string',
         'story_points' => 'int',
     ];
-
 }

@@ -1,7 +1,7 @@
 import Header from "@/Components/Header.jsx";
 import {  useState } from 'react';
-import trelloImage from '../../../Assets/trelloIcon.png';
-import jiraImage from '../../../Assets/jira.webp';
+import trelloImage from '../../Assets/trelloIcon.png';
+import jiraImage from '../../Assets/jira.webp';
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";

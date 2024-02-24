@@ -16,19 +16,18 @@ use Pusher\ApiErrorException;
  */
 class TrelloService implements TaskApiInterface
 {
-
     public function getTasks(string $boardId): array
     {
         $tasks = [];
 
         $response = Client::getBoardCardsById($boardId);
 
-        if($response->successful()) {
-            foreach($response->json() as $task) {
+        if ($response->successful()) {
+            foreach ($response->json() as $task) {
                 $tasks[] = (new Task(
-                    id: $task["id"],
-                    name: $task["name"],
-                    description: $task["desc"],
+                    id: $task['id'],
+                    name: $task['name'],
+                    description: $task['desc'],
                     story_points: null
                 ))->toArray();
             }
@@ -37,24 +36,24 @@ class TrelloService implements TaskApiInterface
         }
 
         throw new ApiErrorException(
-            message: $response->getReasonPhrase(), 
+            message: $response->getReasonPhrase(),
             code: $response->getCode()
         );
     }
 }
 
-class Client 
+class Client
 {
-    const BASE_URL = "https://api.trello.com/1/";
+    const BASE_URL = 'https://api.trello.com/1/';
 
-    static function getBoardCardsById(string $boardId): Response {
+    public static function getBoardCardsById(string $boardId): Response
+    {
         return Http::withHeaders([
             'Content-Type' => 'application/json',
-        ])->get(self::BASE_URL . "boards/" . $boardId . "/cards", [
-            "key" => env("TRELLO_KEY"),
-            "token" => env("TRELLO_TOKEN"),
-            "filter" => "open"
+        ])->get(self::BASE_URL.'boards/'.$boardId.'/cards', [
+            'key' => env('TRELLO_KEY'),
+            'token' => env('TRELLO_TOKEN'),
+            'filter' => 'open',
         ]);
     }
-
 }

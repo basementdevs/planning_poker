@@ -28,11 +28,12 @@ class MakeTrait extends Command
     {
         $name = $this->argument('name');
         $traitPath = app_path("Traits/{$name}.php");
-        if(!File::isDirectory(app_path('Traits'))){
+        if (! File::isDirectory(app_path('Traits'))) {
             File::makeDirectory(app_path('Traits'), 0777, true, true);
         }
         if (File::exists($traitPath)) {
             $this->error("Trait {$name} already exists!");
+
             return;
         }
 
@@ -44,7 +45,6 @@ class MakeTrait extends Command
     /**
      * Get the stub content for the trait.
      *
-     * @param  string  $name
      * @return string
      */
     protected function traitStub(string $name)
