@@ -1,10 +1,11 @@
 import Header from "@/Components/Header.jsx";
-import { useEffect, useRef, useState } from 'react';
-import trelloImage from '../../Assets/trelloIcon.png';
-import jiraImage from '../../Assets/jira.webp';
+import {  useState } from 'react';
+import trelloImage from '../../../Assets/trelloIcon.png';
+import jiraImage from '../../../Assets/jira.webp';
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import TrelloSettingsForm from "@/Components/TrelloSettingsForm.jsx";
 
 const SaveSettings = () =>{
     return <div className="underline"> Save</div>
@@ -14,11 +15,7 @@ const PlatformSettings = ({ platform }) => {
     let PSettingsForms = null
 
     if (platform === 'trello') {
-        PSettingsForms = (
-            <div className="underline text-blue-500">
-                {platform}
-            </div>
-        );
+        PSettingsForms = <TrelloSettingsForm/>
     }else if(platform === 'jira'){
         PSettingsForms = (
             <div className="underline  text-blue-200">
@@ -79,7 +76,7 @@ const TaskManagerChoice = ()=>{
                                     />
                                 )}
                                 <h3 className="text-xl font-semibold mb-2 text-center text-custom-text">
-                                    {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+                                    {item.name.UFirstLetter()}
                                 </h3>
                             </div>
                         </div>
