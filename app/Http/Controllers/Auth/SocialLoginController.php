@@ -22,7 +22,7 @@ class SocialLoginController extends Controller
         try {
             $user = Socialite::driver('google')->stateless()->user();
             $existingUser = User::firstOrNew(['email' => $user->getEmail()]);
-            if (!$existingUser->exists) {
+            if (! $existingUser->exists) {
                 $existingUser->name = $user->getName();
                 $existingUser->email_verified_at = Carbon::now();
                 $password = bcrypt(Str::random());
@@ -30,10 +30,10 @@ class SocialLoginController extends Controller
                 $existingUser->save();
             }
             auth('web')->login($existingUser);
+
             return redirect()->intended(RouteServiceProvider::HOME);
         } catch (\Exception $e) {
             return redirect()->route('login')->with('error', 'Authentication failed.');
         }
     }
-
 }
