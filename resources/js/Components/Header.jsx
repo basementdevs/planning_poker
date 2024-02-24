@@ -1,10 +1,14 @@
 import logo from "../Assets/logo.png";
-export default function Header() {
+import {Link} from "@inertiajs/react";
+export default function Header({children}) {
     return (
         <header className="bg-custom-primary p-4">
-            <div className="container mx-auto flex items-center ">
+            <div className="container mx-auto flex justify-between">
                 {/*<img src={logo} alt="Logo" className="w-12 h-12"/>*/}
-                <div className="text-white text-2xl font-semibold">Planning Poker</div>
+                <Link href={route('home')} className="cursor-pointer items-center text-white text-2xl font-semibold">
+                    Planning Poker
+                </Link>
+                {children}
             </div>
         </header>
     );

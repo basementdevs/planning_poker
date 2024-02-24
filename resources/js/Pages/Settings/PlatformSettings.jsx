@@ -6,6 +6,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import TrelloSettingsForm from "@/Components/TrelloSettingsForm.jsx";
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
 const SaveSettings = () =>{
     return <div className="underline"> Save</div>
@@ -97,11 +98,12 @@ const Settings = ()=>{
 
 
 
-export default function PlatformChoose() {
+export default function PlatformChoose({auth}) {
     return (
-        <>
-            <Header />
+        <AuthenticatedLayout
+            user={auth.user}
+        >
             <TaskManagerChoice />
-        </>
+        </AuthenticatedLayout>
     );
 }
