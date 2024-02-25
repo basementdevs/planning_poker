@@ -42,8 +42,8 @@ export default function PokerTable (props){
                 <div key="card-up-2" style={{ ...card, ...cardUp, marginLeft: "265px" }}></div>
                 <div key="card-up-3" style={{ ...card, ...cardUp, marginLeft: " 370px" }}></div>
                 <div key="card-down-1" style={{ ...card, ...cardDown, marginLeft: "150px" }}></div>
-                <div key="card-down-1" style={{ ...card, ...cardDown, marginLeft: "265px" }}></div>
-                <div key="card-down-1" style={{ ...card, ...cardDown, marginLeft: "370px" }}></div>
+                <div key="card-down-2" style={{ ...card, ...cardDown, marginLeft: "265px" }}></div>
+                <div key="card-down-3" style={{ ...card, ...cardDown, marginLeft: "370px" }}></div>
             </div>
         </div>
     )

@@ -39,7 +39,7 @@ export default function Authenticated({ user, header, children }) {
                                 <Dropdown.Link href={route('profile.edit')}>Profile
                                     <FontAwesomeIcon className="ml-3" icon={faUser} />
                                 </Dropdown.Link>
-                                <Dropdown.Link href={route('settings-platform.board')}>Settings
+                                <Dropdown.Link href={{}}>Settings
                                     <FontAwesomeIcon className="ml-3" icon={faGear} />
                                 </Dropdown.Link>
                                 <Dropdown.Link href={route('logout')} method="post" as="button">

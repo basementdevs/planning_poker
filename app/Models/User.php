@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password',
         'email_verified_at',
         'o_auth_token',
-        'picture'
+        'picture',
     ];
 
     /**
@@ -51,37 +51,36 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
     /**
      * Method to update user from oAuth2.0
-     * @param \Laravel\Socialite\Two\User $user
+     *
      * @return User
      */
     public function socialUserCreateOrUpdate(\Laravel\Socialite\Two\User $user): static
     {
 
         $save = false;
-        if ($this->name !=  $user->getName()){
+        if ($this->name != $user->getName()) {
             $this->name = $user->getName();
             $save = true;
         }
-        if(!$this->email_verified_at){
+        if (! $this->email_verified_at) {
             $this->email_verified_at = Carbon::now();
             $save = true;
         }
-        if(!$this->password){
+        if (! $this->password) {
             $this->password = bcrypt(Str::random());
             $save = true;
         }
-        if($this->o_auth_token!= $user->getId()){
+        if ($this->o_auth_token != $user->getId()) {
             $this->o_auth_token = $user->getId();
             $save = true;
         }
-        if($this->picture!=$user->getAvatar()){
+        if ($this->picture != $user->getAvatar()) {
             $this->picture = $user->avatar;
             $save = true;
         }
-        if ($save){
+        if ($save) {
             $this->save();
         }
 

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->string('o_auth_token')->nullable(true);
         });
     }
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
 
-        Schema::table('users', function (Blueprint $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('o_auth_token');
         });
     }

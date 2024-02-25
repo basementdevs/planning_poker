@@ -1,4 +1,3 @@
-import Header from "@/Components/Header.jsx";
 import {  useState } from 'react';
 import trelloImage from '../../Assets/trelloIcon.png';
 import jiraImage from '../../Assets/jira.webp';
@@ -7,28 +6,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import TrelloSettingsForm from "@/Components/TrelloSettingsForm.jsx";
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import ComingSoon from "@/Components/ComingSoon.jsx";
 
 const SaveSettings = () =>{
     return <div className="underline"> Save</div>
 }
 
-const PlatformSettings = ({ platform }) => {
+const PlatformSettings = ({ platform, auth }) => {
     let PSettingsForms = null
 
     if (platform === 'trello') {
         PSettingsForms = <TrelloSettingsForm/>
     }else if(platform === 'jira'){
-        PSettingsForms = (
-            <div className="underline  text-blue-200">
-                {platform}
-            </div>
-        );
+        PSettingsForms = <ComingSoon className={"mt-16 mr-2 ml-2"}/>
+    }else if(platform  === 'none'){
+        PSettingsForms = <ComingSoon className={"mt-16 mr-2 ml-2"} />
     }
 
-    return PSettingsForms?? <SaveSettings/>;
+    return PSettingsForms;
 }
 
-const TaskManagerChoice = ()=>{
+const TaskManagerChoice = ({platformSettings})=>{
     const [selectedPlatform, setSelectedPlatform] = useState(null);
 
     const handlePlatformSelection = (platform) => {
@@ -92,8 +90,8 @@ const TaskManagerChoice = ()=>{
 
 
 
-const Settings = ()=>{
-    return <TaskManagerChoice/>
+const Settings = ({platformSettings})=>{
+    return <TaskManagerChoice platformSettings={ platformSettings}/>
 }
 
 
@@ -103,7 +101,7 @@ export default function PlatformChoose({auth}) {
         <AuthenticatedLayout
             user={auth.user}
         >
-            <TaskManagerChoice />
+            <TaskManagerChoice  platformSettings={auth.platform}/>
         </AuthenticatedLayout>
     );
 }

@@ -31,10 +31,10 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email') && \auth()->user()->o_auth_token=='') {
+        if ($request->user()->isDirty('email') && \auth()->user()->o_auth_token == '') {
             $request->user()->email_verified_at = null;
-        }elseif ($request->user()->isDirty('email') && \auth()->user()->o_auth_token !=''){
-            return Inertia::render('Profile/Edit')->with('errors',[
+        } elseif ($request->user()->isDirty('email') && \auth()->user()->o_auth_token != '') {
+            return Inertia::render('Profile/Edit')->with('errors', [
                 'email' => 'Social Login Users can\'t change email',
             ]);
         }
