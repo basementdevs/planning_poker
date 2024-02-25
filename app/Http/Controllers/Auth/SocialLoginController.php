@@ -21,12 +21,14 @@ class SocialLoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->stateless()->user();
+
             $existingUser = User::firstOrNew(['email' => $user->getEmail()]);
             if (! $existingUser->exists) {
                 $existingUser->name = $user->getName();
                 $existingUser->email_verified_at = Carbon::now();
                 $password = bcrypt(Str::random());
                 $existingUser->password = $password;
+                $existingUser->o_auth_token = $user->getId();
                 $existingUser->save();
             }
             auth('web')->login($existingUser);
