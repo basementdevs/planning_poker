@@ -34,7 +34,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::prefix('settings')->group(function () {
-        Route::get('board', [\App\Http\Controllers\Settings\PlatformSettingsController::class, 'index'])->name('settings-platform.board');
+        Route::get('platforms', [\App\Http\Controllers\Settings\PlatformSettingsController::class, 'index'])->name('settings-platform.index');
+        Route::get('create', [\App\Http\Controllers\Settings\PlatformSettingsController::class, 'create'])->name('settings-platform.create');
+        Route::get('cards', [\App\Http\Controllers\Settings\PlatformSettingsController::class, 'cards'])->name('settings-platform.cards');
+        Route::post('store', [\App\Http\Controllers\Settings\SettingController::class, 'store'])->name('setting.store');
+        //  Route::get('list', [\App\Http\Controllers\Settings\SettingController::class, 'list'])->name('setting.list');
     });
 });
 

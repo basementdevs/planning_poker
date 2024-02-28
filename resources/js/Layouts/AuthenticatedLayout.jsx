@@ -1,12 +1,26 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import Dropdown from '@/Components/Dropdown';
 import Header from "@/Components/Header.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faUser, faGear, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import {usePage} from "@inertiajs/react";
+import {Swal} from "sweetalert2";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+    const { flash } = usePage();
 
+    useEffect(() => {
+        if (flash && flash.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: flash.success,
+                timer: 3000, // Adjust the time as needed
+                showConfirmButton: false,
+            });
+        }
+    }, [flash]);
     return (
         <div>
             <Header>

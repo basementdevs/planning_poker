@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a193d22dca544d99e0869f85d87bebb8",
+    "content-hash": "8d7aeb35090e2c9de6e82ede9be2c894",
     "packages": [
         {
             "name": "ably/ably-php",
@@ -3887,6 +3887,70 @@
                 }
             ],
             "time": "2022-02-16T00:48:07+00:00"
+        },
+        {
+            "name": "stevenmaguire/trello-php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stevenmaguire/trello-php.git",
+                "reference": "b7d689df47be351b6113144ca6b3e8405b7974b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stevenmaguire/trello-php/zipball/b7d689df47be351b6113144ca6b3e8405b7974b6",
+                "reference": "b7d689df47be351b6113144ca6b3e8405b7974b6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.0",
+                "league/oauth1-client": "^1.5",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.5",
+                "phpunit/phpunit": "^8.0",
+                "squizlabs/php_codesniffer": "~3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stevenmaguire\\Services\\Trello\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Maguire",
+                    "email": "stevenmaguire@gmail.com",
+                    "homepage": "http://stevenmaguire.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP wrapper for Trello API",
+            "homepage": "http://github.com/stevenmaguire/trello-php",
+            "keywords": [
+                "client",
+                "php",
+                "trello",
+                "trello gold",
+                "wrapper"
+            ],
+            "support": {
+                "issues": "https://github.com/stevenmaguire/trello-php/issues",
+                "source": "https://github.com/stevenmaguire/trello-php/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/stevenmaguire",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-10-27T17:52:52+00:00"
         },
         {
             "name": "symfony/console",
