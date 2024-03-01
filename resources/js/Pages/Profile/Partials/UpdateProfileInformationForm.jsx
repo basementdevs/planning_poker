@@ -11,7 +11,9 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
         name: user.name,
         email: user.email,
+        oAuthToken: user.o_auth_token,
     });
+
 
     const submit = (e) => {
         e.preventDefault();
@@ -52,11 +54,12 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                     <TextInput
                         id="email"
                         type="email"
-                        className="mt-1 block w-full"
+                        className={`mt-1 block w-full ${!!data.oAuthToken ? 'bg-gray-100' : ''}`}
                         value={data.email}
                         onChange={(e) => setData('email', e.target.value)}
                         required
                         autoComplete="username"
+                        disabled={!!data.oAuthToken}
                     />
 
                     <InputError className="mt-2" message={errors.email} />
