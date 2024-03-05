@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -41,5 +42,7 @@ Route::middleware('auth')->group(function () {
         //  Route::get('list', [\App\Http\Controllers\Settings\SettingController::class, 'list'])->name('setting.list');
     });
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 require __DIR__.'/auth.php';
