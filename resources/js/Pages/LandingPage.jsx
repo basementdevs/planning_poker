@@ -10,7 +10,7 @@ export default function LandingPage() {
                 Planning Poker
             </h1>
             <a
-                href="#"
+                href="#{route('login')}"
                 className="px-[2rem] py-2 text-[#FBFBFE] text-[1rem] bg-[#443DFF] font-bold rounded-full transition hover:bg-[#8480FF] hover:scale-105 md:px-[3rem] md:py-3 md:text-[1.2rem] lg:px-[6.8rem] lg:py-4 lg:text-[1.55rem]"
             >
                 Start new game
