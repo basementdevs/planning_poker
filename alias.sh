@@ -1,0 +1,7 @@
+alias artisan="./vendor/bin/sail artisan"
+alias npm="./vendor/bin/sail npm"
+alias permission_enable="chmod -R 777 ."
+alias sail="./vendor/bin/sail"
+alias composer="./vendor/bin/sail composer"
+alias first_install="docker run --rm -v $(pwd):/var/www/html -w /var/www/html composer:latest composer install && ./vendor/bin/sail up -d"
+alias pint="./vendor/bin/pint"

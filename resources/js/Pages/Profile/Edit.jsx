@@ -3,8 +3,10 @@ import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm';
 import { Head } from '@inertiajs/react';
+import {data} from "autoprefixer";
 
 export default function Edit({ auth, mustVerifyEmail, status }) {
+
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -14,7 +16,7 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-                    <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    <div className="p-4 sm:p-8 bg-custom-background shadow sm:rounded-lg">
                         <UpdateProfileInformationForm
                             mustVerifyEmail={mustVerifyEmail}
                             status={status}
@@ -22,12 +24,16 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
                         />
                     </div>
 
-                    <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                        <UpdatePasswordForm className="max-w-xl" />
-                    </div>
+                    {
+                        !!auth.user.o_auth_toke??
+                        <div className="p-4 sm:p-8 bg-custom-background shadow sm:rounded-lg">
+                            <UpdatePasswordForm className="max-w-xl"/>
+                        </div>
 
-                    <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                        <DeleteUserForm className="max-w-xl" />
+                    }
+
+                    <div className="p-4 sm:p-8 bg-custom-background shadow sm:rounded-lg">
+                        <DeleteUserForm className="max-w-xl"/>
                     </div>
                 </div>
             </div>
